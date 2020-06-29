@@ -2,7 +2,7 @@
 //06-29-2020
 //https://leetcode.com/problems/perfect-squares
 //SC: O(N^2) TC: O(N^2)
-//Knapsack DP
+//Knapsack DP 2D
 
 class Solution {
 public:
