@@ -1,6 +1,6 @@
 //Ian Hays
 //06-29-2020
-//https://leetcode.com/problems/perfect-squares/submissions/
+//https://leetcode.com/problems/perfect-squares
 //SC: O(N^2) TC: O(N^2)
 //Knapsack DP
 
