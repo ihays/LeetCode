@@ -1,0 +1,18 @@
+//Ian Hays
+//06-29-2020
+//https://leetcode.com/problems/unique-paths/
+//SC: O(M*N) TC: O(M*N)
+//DP - initialize first col/row with 1's. Sum unique paths to bottom right.
+
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        vector<vector<int>> dp(m,vector<int>(n,0));
+        for(int i = 1; i < dp.size(); i++){
+            for(int j = 1; j < dp[i].size(); j++){
+                dp[i][j] = dp[i][j-1] + dp[i-1][j];
+            }
+        }
+        return dp[m-1][n-1];
+    }
+};
