@@ -1,6 +1,6 @@
   
 //Ian Hays
-//06-29-2020
+//06-30-2020
 //https://leetcode.com/problems/rotate-array/
 //SC: O(N) TC: O(1)
 //reverse whole array, reverse partitions based on k mod size of array.
