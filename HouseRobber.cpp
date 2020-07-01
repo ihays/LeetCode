@@ -1,5 +1,5 @@
 //Ian Hays
-//06-29-2020
+//06-30-2020
 //https://leetcode.com/problems/house-robber/
 //SC: O(1) TC: O(N)
 //DP - a: maximum amount stashed from previous states. b: pending max amount stashed from previous states. c: max amount stashed pointed to by i. 
