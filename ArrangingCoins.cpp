@@ -1,4 +1,3 @@
-  
 //Ian Hays
 //07-01-2020
 //https://leetcode.com/problems/arranging-coins/
