@@ -2,7 +2,7 @@
 //07-05-2020
 //https://leetcode.com/problems/maximum-depth-of-binary-tree/
 //SC: O(N) TC: O(N)
-//Iterative DFS: push into stack prioritizing left tree. build array and push on right tree.
+//Iterative DFS: Push into stack prioritizing left tree. build array and push on right tree.
 
 /**
  * Definition for a binary tree node.
