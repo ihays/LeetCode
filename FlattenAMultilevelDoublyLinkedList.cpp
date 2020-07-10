@@ -1,7 +1,7 @@
 //Ian Hays
 //07-10-2020
 //https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/
-//SC: O(1) TC: O(N)
+//SC: O(1) TC: O(N^2)
 
 /*
 // Definition for a Node.
