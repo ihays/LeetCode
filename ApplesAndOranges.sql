@@ -1,6 +1,6 @@
-#Ian Hays
-#07-11-2020
-#https://leetcode.com/problems/apples-oranges/
+# Ian Hays
+# 07-11-2020
+# https://leetcode.com/problems/apples-oranges/
 
 # Write your MySQL query statement below
 SELECT s.sale_date,
