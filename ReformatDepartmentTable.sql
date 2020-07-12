@@ -1,21 +1,56 @@
-# Ian Hays
-# 07-12-2020
+# Ian Hays 
+# 07-12-2020 
 # https://leetcode.com/problems/reformat-department-table/
 
-
-# Write your MySQL query statement below
-SELECT id,
-       sum(CASE WHEN month = 'Jan' THEN revenue ELSE null END) as Jan_Revenue,
-       sum(CASE WHEN month = 'Feb' THEN revenue ELSE null END) as Feb_Revenue,
-       sum(CASE WHEN month = 'Mar' THEN revenue ELSE null END) as Mar_Revenue,
-       sum(CASE WHEN month = 'Apr' THEN revenue ELSE null END) as Apr_Revenue,
-       sum(CASE WHEN month = 'May' THEN revenue ELSE null END) as May_Revenue,
-       sum(CASE WHEN month = 'Jun' THEN revenue ELSE null END) as Jun_Revenue,
-       sum(CASE WHEN month = 'Jul' THEN revenue ELSE null END) as Jul_Revenue,
-       sum(CASE WHEN month = 'Aug' THEN revenue ELSE null END) as Aug_Revenue,
-       sum(CASE WHEN month = 'Sep' THEN revenue ELSE null END) as Sep_Revenue,
-       sum(CASE WHEN month = 'Oct' THEN revenue ELSE null END) as Oct_Revenue,
-       sum(CASE WHEN month = 'Nov' THEN revenue ELSE null END) as Nov_Revenue,
-       sum(CASE WHEN month = 'Dec' THEN revenue ELSE null END) as Dec_Revenue
-FROM Department
-group by id
+# Write your MySQL query statement below 
+SELECT id, 
+       Sum(CASE 
+             WHEN month = 'Jan' THEN revenue 
+             ELSE NULL 
+           end) AS Jan_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Feb' THEN revenue 
+             ELSE NULL 
+           end) AS Feb_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Mar' THEN revenue 
+             ELSE NULL 
+           end) AS Mar_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Apr' THEN revenue 
+             ELSE NULL 
+           end) AS Apr_Revenue, 
+       Sum(CASE 
+             WHEN month = 'May' THEN revenue 
+             ELSE NULL 
+           end) AS May_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Jun' THEN revenue 
+             ELSE NULL 
+           end) AS Jun_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Jul' THEN revenue 
+             ELSE NULL 
+           end) AS Jul_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Aug' THEN revenue 
+             ELSE NULL 
+           end) AS Aug_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Sep' THEN revenue 
+             ELSE NULL 
+           end) AS Sep_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Oct' THEN revenue 
+             ELSE NULL 
+           end) AS Oct_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Nov' THEN revenue 
+             ELSE NULL 
+           end) AS Nov_Revenue, 
+       Sum(CASE 
+             WHEN month = 'Dec' THEN revenue 
+             ELSE NULL 
+           end) AS Dec_Revenue 
+FROM   department 
+GROUP  BY id 
