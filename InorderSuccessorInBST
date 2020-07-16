@@ -1,0 +1,33 @@
+//Ian Hays
+//07-14-2020
+//https://leetcode.com/problems/inorder-successor-in-bst/
+//SC: O(1) TC: O(Log(N))
+//We use the nature of a BST to find the value of p, while storing the successor in a solution node. Each time
+//you travel left, you will store that node as the successor since it's the next greatest value to the node you
+//travelled to.
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
+        if(!root || !p) return NULL;
+        TreeNode* suc;
+        while(root){
+            if(p->val < root->val){
+                suc = root;
+                root = root->left;
+            } else {
+                root = root->right;
+            }
+        }
+        return suc;
+    }
+};
