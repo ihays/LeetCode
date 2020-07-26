@@ -1,19 +1,17 @@
 //Ian Hays
 //07-25-2020
 //https://leetcode.com/problems/alien-dictionary/
-//SC: O(M*N) TC: O(M*N)
+//SC: O(V+E) TC: O(V+E)
 
 class Solution {
 public:
     string alienOrder(vector<string>& words) {
         unordered_map<char,unordered_set<char>> graph;
         unordered_map<char,int> indegrees;
-        unordered_set<char> alphabet;
         
         //initialize indegree
         for(int i = 0; i < words.size(); i++){
             for(int j = 0; j < words[i].size(); j++){
-                alphabet.insert(words[i].begin(),words[i].end());
                 char ch = words[i][j];
                 indegrees[ch] = 0;
             }
@@ -57,7 +55,8 @@ public:
             }
         }
         //if res size different than alphabet size, means there was a loop, so return ""
-        return res.size() == alphabet.size() ? res : "";
+        return res.size() == indegrees.size() ? res : "";
     }
 };
+
 
