@@ -10,7 +10,7 @@ class Solution {
         Set<String> visited = new HashSet<>();
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[] {0,0});
-        int res = 0;
+        int result = 0;
         x = Math.abs(x);
         y = Math.abs(y);
         while(!queue.isEmpty()){
@@ -37,8 +37,8 @@ class Solution {
                 }
             }
             if(flag) break;
-            res++;
+            result++;
         }
-        return res;
+        return result;
     }
 }
