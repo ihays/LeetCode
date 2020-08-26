@@ -1,3 +1,8 @@
+//Ian Hays
+//08-24-2020
+//https://leetcode.com/problems/minimum-knight-moves/
+//SC: O(N^2) TC: O(N^2)
+
 class Solution {
     private final int[][] directions = new int[][] {{1,2},{-1,2},{1,-2},{-1,-2},{2,1},{-2,1},{2,-1},{-2,-1}};
     
