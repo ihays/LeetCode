@@ -10,12 +10,10 @@ public:
         int c1 = 0; 
         int c2 = 0;
         for(int i = 0; i < secret.size(); i++){
+            umap[secret[i]]++;    
             if(secret[i] == guess[i]){
                 c1++;   
             }
-        }
-        for(int i = 0; i < secret.size(); i++){
-            umap[secret[i]]++;    
         }
         for(int i = 0; i < guess.size(); i++){
             if(umap[guess[i]]-- > 0) c2++;
