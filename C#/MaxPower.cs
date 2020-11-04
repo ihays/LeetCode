@@ -1,3 +1,7 @@
+// Ian Hays
+// https://leetcode.com/problems/consecutive-characters/
+// SC: O(1) TC: O(N)
+
 using System;
 using System.Collections.Generic;
 using System.Text;
