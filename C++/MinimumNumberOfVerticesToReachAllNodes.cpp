@@ -1,7 +1,7 @@
 //Ian Hays
 //12-11-20
 //https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/
-//SC: O(N^2) TC: O(N^2)
+//SC: O(N) TC: O(N)
 
 class Solution {
 public:
