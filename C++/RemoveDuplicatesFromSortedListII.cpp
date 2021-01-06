@@ -13,32 +13,33 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
         ListNode dummy(0);
         dummy.next = head;
-        unordered_map<int,int> umap;
-        vector<int> duplicate;
         
-        ListNode* tail = dummy.next;
-        
-        while(tail){
-            if(++umap[tail->val] == 2) duplicate.push_back(tail->val);
-            tail = tail->next;        
-        }
-        tail = &dummy;
-        
-        for(int i = 0; i < duplicate.size(); i++){
-            while(tail->next && tail->next->val != duplicate[i]){
+        ListNode* tail = &dummy;
+        while(tail->next && tail->next->next){
+            if(tail->next->val == tail->next->next->val){
+                int val = tail->next->val;
+                while(tail->next && tail->next->val == val){
+                    tail->next = tail->next->next;
+                }
+            } else {
                 tail = tail->next;
             }
-            while(tail->next && tail->next->val == duplicate[i]){
-                tail->next = tail->next->next;
-            }
         }
-        
         return dummy.next;
-        
     }
 };
