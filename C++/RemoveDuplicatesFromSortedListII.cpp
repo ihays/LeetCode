@@ -18,16 +18,15 @@ public:
     ListNode* deleteDuplicates(ListNode* head) {
         ListNode dummy(0);
         dummy.next = head;
-        
-        ListNode* tail = &dummy;
-        while(tail->next && tail->next->next){
-            if(tail->next->val == tail->next->next->val){
-                int val = tail->next->val;
-                while(tail->next && tail->next->val == val){
-                    tail->next = tail->next->next;
+        head = &dummy;
+        while(head->next && head->next->next){
+            if(head->next->val == head->next->next->val){
+                int val = head->next->val;
+                while(head->next && head->next->val == val){
+                    head->next = head->next->next;
                 }
             } else {
-                tail = tail->next;
+                head = head->next;
             }
         }
         return dummy.next;
