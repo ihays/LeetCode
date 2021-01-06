@@ -1,18 +1,8 @@
 //Ian Hays
-//08-26-2020
+//01-05-2021
 //https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
-//SC: O(N^2) TC: O(N^2)
+//SC: O(1) TC: O(N)
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 /**
  * Definition for singly-linked list.
  * struct ListNode {
