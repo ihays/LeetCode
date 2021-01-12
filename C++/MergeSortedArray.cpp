@@ -3,7 +3,7 @@
 //https://leetcode.com/problems/merge-sorted-array/
 //SC: O(1) TC: O(N*LOG(N))
 //Binary search to insert values from nums2 into nums1
-//updated on 01-11-2021 to resize first and then insert to reduce space/time. 
+//updated on 01-11-2021 to resize first and then insert to reduce space/time. Using while loop instead of recursion.
 
 class Solution {
 public:
