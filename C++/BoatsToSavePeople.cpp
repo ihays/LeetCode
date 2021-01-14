@@ -11,14 +11,9 @@ public:
         int res = 0;
         sort(people.begin(), people.end());
         while(l <= r){
-            if(people[l] + people[r] <= limit){
-                res++;
-                l++;
-                r--;
-            } else {
-                res++;
-                r--;
-            }
+            if(people[l] + people[r] <= limit) l++;
+            res++;
+            r--;
         }
         return res;
     }
