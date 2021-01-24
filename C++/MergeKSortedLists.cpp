@@ -4,7 +4,7 @@
 //SC: O(N) TC: O(N)
 
 /**
- * Definition for singly-linked list.
+* Definition for singly-linked list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
@@ -24,13 +24,10 @@ public:
                 l = l->next;
             }
         }
-        if(q.empty()) return nullptr;
+        if(q.empty()) return nullptr;        
         
-        ListNode dummy;
-        ListNode* tail = new ListNode(q.top());
-        dummy.next = tail;
-        q.pop();
-        
+        ListNode dummy(0);
+        ListNode* tail = &dummy;
         while(!q.empty()){
             tail->next = new ListNode(q.top());
             tail = tail->next;
