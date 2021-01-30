@@ -1,7 +1,7 @@
 //Ian Hays
 //01-29-2021
 //https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
-//SC: O(N) TC: O(N) N = number of nodes
+//SC: O(N) TC: O(NLOG(N)) N = number of nodes
 
 /**
  * Definition for a binary tree node.
