@@ -7,19 +7,7 @@
 public class Solution {
     public int FindLHS(int[] nums) {
         IDictionary<int,int> dict = new Dictionary<int,int>();
-        foreach(var num in nums){
-            if(dict.ContainsKey(num)){
-                dict[num]++;
-            } else {
-                dict.Add(num,1);
-            }
-        }
-        int res = 0;
-        foreach(KeyValuePair<int, int> entry in dict){
-            if(dict.ContainsKey(entry.Key + 1)){
-                res = Math.Max(res, entry.Value + dict[entry.Key + 1]);
-            }
-        }
-        return res;
+        foreach(int num in nums) dict[num] = dict.ContainsKey(num) ? dict[num] + 1 : 1;
+        return dict.Max(d => dict.ContainsKey(d.Key + 1) ? d.Value + dict[d.Key + 1]: 0);
     }
 }
