@@ -7,7 +7,8 @@
 public class Solution {
     public int FindLHS(int[] nums) {
         IDictionary<int,int> dict = new Dictionary<int,int>();
-        foreach(int num in nums) dict[num] = dict.ContainsKey(num) ? dict[num] + 1 : 1;
+        foreach(int num in nums) 
+            dict[num] = dict.ContainsKey(num) ? dict[num] + 1 : 1;
         return dict.Max(d => dict.ContainsKey(d.Key + 1) ? d.Value + dict[d.Key + 1]: 0);
     }
 }
