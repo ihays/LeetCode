@@ -1,8 +1,3 @@
-//Ian Hays
-//02-09-2021
-//https://leetcode.com/problems/convert-bst-to-greater-tree/
-//SC: O(1) TC: O(N)
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -16,16 +11,13 @@
  */
 class Solution {
 public:
+    int sum = 0; 
     TreeNode* convertBST(TreeNode* root) {
-        int sum = 0;
-        dfs(root,sum);
-        return root;
-    }
-    void dfs(TreeNode* root, int& sum){
-        if(!root) return;
-        dfs(root->right, sum);
+        if(!root) return NULL;
+        convertBST(root->right);
         root->val += sum;
         sum = root->val;
-        dfs(root->left, sum);
+        convertBST(root->left);
+        return root;
     }
 };
