@@ -1,14 +1,14 @@
 //Ian Hays
-//07-01-2020
+//02-11-2021
 //https://leetcode.com/problems/valid-anagram/
-//SC: O(1) TC: O(N*LOG(N))
-//solution by sort. Not the fastest, but constant space complexity & 3 lines.
+//SC: O(1) TC: O(1)
 
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        sort(s.begin(), s.end());
-        sort(t.begin(), t.end());
-        return s == t;
+        int chars[26] = {0};
+        for(auto ch : s) ++chars[ch-'a'];
+        for(auto ch : t) if(--chars[ch-'a'] < 0) return false;
+        return s.length() == t.length();
     }
 };
