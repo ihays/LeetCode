@@ -6,11 +6,7 @@
 class Solution {
 public:
     int numberOfSteps (int num) {
-        int res = 0;
-        while(num){
-            num = num%2 ? num-1 : num/2;
-            res++;
-        }
-        return res;
+        if(!num) return 0;
+        return 1 + (num%2 ? numberOfSteps(num-1) : numberOfSteps(num/2));
     }
 };
