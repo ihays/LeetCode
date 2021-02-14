@@ -1,7 +1,7 @@
 //Ian Hays
 //02-14-2021
 //https://leetcode.com/problems/is-graph-bipartite/
-//SC: O(N) TC: O(N)
+//SC: O(V*E) TC: O(V*E)
 
 class Solution {
 public:
