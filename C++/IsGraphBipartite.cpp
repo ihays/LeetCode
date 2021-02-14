@@ -1,29 +1,34 @@
 //Ian Hays
-//07-31-2020
+//02-14-2021
 //https://leetcode.com/problems/is-graph-bipartite/
 //SC: O(N) TC: O(N)
 
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>& graph) {
+        queue<array<int,2>> q;
         vector<int> visited(graph.size(),0);
-        bool res = true;
-        for(int i = 0; i < graph.size(); i++){
-            if(visited[i] == 0){
-                res &= dfs(graph,visited,i,1);    
-            } 
-        }
-        return res;
-    }
-    
-    bool dfs(vector<vector<int>>& graph, vector<int>& visited, int node, int group){
-        bool res = true;
-        if(visited[node] == 0){
-            visited[node] = group;
-            for(int i = 0; i < graph[node].size(); i++){
-                res &= dfs(graph, visited, graph[node][i], -group);
+        for(int i = 0; i < visited.size(); i++){
+            if(visited[i]) continue;
+            q.push({i,1});
+            while(!q.empty()){
+                int size = q.size();
+                for(int j = 0; j < size; j++){
+                    auto [node,set] = q.front();
+                    q.pop();
+                    set *= -1;
+                    for(int k = 0; k < graph[node].size(); k++){
+                        int neighbor = graph[node][k];
+                        if(!visited[neighbor]){
+                            visited[neighbor] = set; 
+                            q.push({neighbor,set});
+                        } else {
+                            if(visited[neighbor] != set) return false;
+                        }
+                    }
+                }
             }
         }
-        return res && visited[node] == group;
+        return true;
     }
 };
