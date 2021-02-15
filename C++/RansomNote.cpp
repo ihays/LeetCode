@@ -6,10 +6,10 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        unordered_map<char,int> umap;
-        for(auto ch: magazine) umap[ch]++;
+        int chars[26] = {0};
+        for(auto ch: magazine) chars[ch-'a']++;
         for(auto ch: ransomNote){
-            if(--umap[ch] < 0) return false;
+            if(--chars[ch-'a'] < 0) return false;
         }
         return true;
     }
