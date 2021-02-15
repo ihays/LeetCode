@@ -1,7 +1,7 @@
 //Ian Hays
 //02-15-2021
 //https://leetcode.com/problems/max-consecutive-ones/
-//SC: O(N^2) TC: O(N^2)
+//SC: O(N) TC: O(1)
 
 class Solution {
 public:
