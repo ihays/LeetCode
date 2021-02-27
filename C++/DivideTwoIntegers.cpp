@@ -23,6 +23,7 @@ public:
         while(dvd >= dvs){
             long d = dvs;
             long r = 1;
+            // nested while loop to exponentially drive up accumulation
             while(d+d < dvd){
                 d+=d;
                 r+=r;
