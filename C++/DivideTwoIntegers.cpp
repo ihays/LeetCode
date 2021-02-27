@@ -1,25 +1,34 @@
-//Ian Hays
-//07-24-2020
-//https://leetcode.com/problems/divide-two-integers/
-//SC: O(1) TC: O(N)
+/***********************************************************************************************
+Problem      Divide Two Integers
+Developer    Ian Hays
+Date         02/27/2021
+URL          https://leetcode.com/problems/divide-two-integers/
+Space        O(1) 
+Time         O(LOG(N))
+Description  Determines division rounding down without using multiplication, division, or mod. If
+             there will be an overflow (-1 times minimum integer value) we return max integer 
+             value. Subtract the divisor from the dividend while looping and accumulating the 
+             result. Nested while loop to exponentially drive up the accumulation to give a runtime
+             of LOG(N).
+************************************************************************************************/
 
 class Solution {
 public:
     int divide(int dividend, int divisor) {
         if(dividend == INT_MIN && divisor == -1) return INT_MAX;
         int sign = dividend < 0 ^ divisor < 0 ? -1 : 1;
-        long divd = labs(dividend);
-        long divs = labs(divisor);
+        long dvd = abs(dividend);
+        long dvs = abs(divisor);
         long res = 0;
-        while(divd >= divs){
-            long tmp = divs;
-            long m = 1;
-            while(tmp*2 < divd){
-                tmp *= 2;
-                m *= 2;
+        while(dvd >= dvs){
+            long d = dvs;
+            long r = 1;
+            while(d+d < dvd){
+                d+=d;
+                r+=r;
             }
-            divd -= tmp;
-            res += m;
+            dvd -= d;
+            res += r;
         }
         return res * sign;
     }
