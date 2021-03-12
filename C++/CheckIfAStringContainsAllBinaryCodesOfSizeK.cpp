@@ -18,6 +18,5 @@ public:
             uset.insert(s.substr(i,k));    
         } 
         return uset.size() == pow(2,k);
-        
     }
 };
