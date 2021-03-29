@@ -2,19 +2,23 @@
 Problem      Find The Celebrity
 Developer    Fabian
 Date         03/28/2021
-URL          https://leetcode.com/problems/PalindromeNumber/
+URL          https://leetcode.com/problems/palindrome-number/
 Space        O(N) 
 Time         O(1)
-Description  Tell the steps on how the problem is solved             
+Description  Determines palindrome by checking outermost characters by incrementation. Returns 
+             false if characters are not equivalent.
 ************************************************************************************************/
 class Solution {
 public:
     bool isPalindrome(int x) {
-        string xs = to_string(x);
-        for(int i; i< xs.length(); i++){
-            if(xs[0] == '-') continue;
-            if(xs[i] == xs[xs.length()-i])
-                
+        string str = to_string(x);
+        int l = 0;
+        int r = str.size()-1;
+        while(l < r){
+            if(str[l] != str[r]) return false;
+            l++;
+            r--;
         }
+        return true;
     }
 };
