@@ -1,5 +1,5 @@
 /***********************************************************************************************
-Problem      Find The Celebrity
+Problem      Palindrome Number
 Developer    Fabian
 Date         03/28/2021
 URL          https://leetcode.com/problems/palindrome-number/
