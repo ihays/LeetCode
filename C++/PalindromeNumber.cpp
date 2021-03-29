@@ -1,6 +1,6 @@
 /***********************************************************************************************
 Problem      Palindrome Number
-Developer    Fabian
+Developer    Fabian Radu
 Date         03/28/2021
 URL          https://leetcode.com/problems/palindrome-number/
 Space        O(N) 
