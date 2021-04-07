@@ -1,0 +1,12 @@
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\bin\Debug\net5.0\ClassLibrary.deps.json
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\bin\Debug\net5.0\ClassLibrary.dll
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\bin\Debug\net5.0\ref\ClassLibrary.dll
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\bin\Debug\net5.0\ClassLibrary.pdb
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\obj\Debug\net5.0\ClassLibrary.csprojAssemblyReference.cache
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\obj\Debug\net5.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\obj\Debug\net5.0\ClassLibrary.AssemblyInfoInputs.cache
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\obj\Debug\net5.0\ClassLibrary.AssemblyInfo.cs
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\obj\Debug\net5.0\ClassLibrary.csproj.CoreCompileInputs.cache
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\obj\Debug\net5.0\ClassLibrary.dll
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\obj\Debug\net5.0\ref\ClassLibrary.dll
+D:\code\LeetCode\leetcode\c#\DetermineIfStringHalvesAreAlike\ClassLibrary\obj\Debug\net5.0\ClassLibrary.pdb
