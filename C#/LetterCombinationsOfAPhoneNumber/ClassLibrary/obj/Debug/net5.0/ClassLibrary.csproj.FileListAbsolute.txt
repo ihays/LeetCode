@@ -1,0 +1,12 @@
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\obj\Debug\net5.0\ClassLibrary.csprojAssemblyReference.cache
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\obj\Debug\net5.0\ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\obj\Debug\net5.0\ClassLibrary.AssemblyInfoInputs.cache
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\obj\Debug\net5.0\ClassLibrary.AssemblyInfo.cs
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\obj\Debug\net5.0\ClassLibrary.csproj.CoreCompileInputs.cache
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\bin\Debug\net5.0\ClassLibrary.deps.json
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\bin\Debug\net5.0\ClassLibrary.dll
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\bin\Debug\net5.0\ref\ClassLibrary.dll
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\bin\Debug\net5.0\ClassLibrary.pdb
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\obj\Debug\net5.0\ClassLibrary.dll
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\obj\Debug\net5.0\ref\ClassLibrary.dll
+D:\code\leetcode\leetcode\c#\lettercombinationsofaphonenumber\ClassLibrary\obj\Debug\net5.0\ClassLibrary.pdb
