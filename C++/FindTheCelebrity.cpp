@@ -1,10 +1,10 @@
 /***********************************************************************************************
 Problem      Find The Celebrity
 Developer    Ian Hays
-Date         02/26/2021
+Date         04/15/2021
 URL          https://leetcode.com/problems/find-the-celebrity/
-Space        O(N) 
-Time         O(1)
+Space        O(1) 
+Time         O(N)
 Description  Dfs through each person based on who they know. The celebrity candidate should always 
              be the end point since they do not know anyone. We then verify the celebrity to make
              sure everyone knows them, and they know no one.             
