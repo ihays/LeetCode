@@ -1,10 +1,14 @@
-  
-//Ian Hays
-//07-06-2020
-//https://leetcode.com/problems/arranging-coins/
-//SC: O(1) TC: O(N)
-//build left tree using preorder until end node is reached by comparing preorder and inorder while storing nodes to stack. 
-//Pop off stack until root node is found, and then create a new root node to the right. Repeat until tree is built.
+/***********************************************************************************************
+Problem      Construct Binary Tree from Preorder and Inorder Traversal
+Developer    Ian Hays
+Date         06/08/2021
+URL          https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+Space        O(N) 
+Time         O(N)
+Description  Store inorder values into a map to keep track of in order indexes. We dfs placing preorder
+             values in inorder locations relative to left/right/mid.
+************************************************************************************************/
+
 
 /**
  * Definition for a binary tree node.
@@ -12,32 +16,29 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
+    unordered_map<int,int> umap;    
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        if(preorder.empty() || inorder.empty()) return NULL;
-        stack<TreeNode*> s;
-        TreeNode* root = new TreeNode(preorder[0]);
-        s.push(root);
-        int index = 0;
-        for(int i = 1; i < preorder.size(); i++){
-            TreeNode* node = s.top();
-            if(node->val != inorder[index]){
-                node->left = new TreeNode(preorder[i]);
-                s.push(node->left);
-            } else {
-                while(!s.empty() && s.top()->val == inorder[index]){
-                    node = s.top();
-                    s.pop();
-                    index++;
-                }
-                node->right = new TreeNode(preorder[i]);
-                s.push(node->right);
-            }
+        int n = inorder.size();
+        for(int i = 0; i < n; i++){
+            umap[inorder[i]] = i;
         }
-        return root;
+        return dfs(0, n-1, preorder);
+    }
+
+    int index = 0;
+    TreeNode* dfs(int left, int right, vector<int>& preorder){
+        if(left > right) return nullptr;
+        TreeNode* root = new TreeNode(preorder[index++]);
+        int mid = umap[root->val];
+        root->left = dfs(left, mid-1, preorder);
+        root->right = dfs(mid+1, right, preorder);
+        return root; 
     }
 };
