@@ -1,0 +1,25 @@
+/***********************************************************************************************
+Problem      Number of Subarrays with Bounded Maximum
+Developer    Ian Hays
+Date         06/17/2021
+URL          https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/
+Space        O(1) 
+Time         O(N)
+Description  Use Triangular Number solution using mid to collect qualifying subarrays only using
+             right as a constraint and low to collect disqualifying subarrays using left. The difference
+             of the two is the result. 
+************************************************************************************************/
+
+class Solution {
+public:
+    int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
+        int res = 0, mid = 1, low = 1;
+        for(int num: nums){
+            if(num <= right) res += mid++;
+            else mid = 1;
+            if(num < left) res -= low++;
+            else low = 1;
+        }
+        return res;
+    }
+};   
