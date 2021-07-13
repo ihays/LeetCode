@@ -1,45 +1,46 @@
-//Ian Hays
-//07-15-2020
-//https://leetcode.com/problems/bomb-enemy/
-//SC: O(1) TC: O(N^3)
-//Constant space solution
-
+/***********************************************************************************************
+Problem      Bomb Enemy
+Developer    Ian Hays
+Date         07/13/2021
+URL          https://leetcode.com/problems/bomb-enemy/
+Space        O(1)
+Time         O(N^3)
+Description  For each location on the grid, count the number of enemies in the line up to a wall.
+             Return the maximum enemies. 
+************************************************************************************************/
 class Solution {
 public:
     int maxKilledEnemies(vector<vector<char>>& grid) {
-        if(grid.empty()) return 0;
-        int m = grid.size();
-        int n = grid[0].size();
-        int res = 0;
-        
-        for(int i = 0; i < m; i++){
-            for(int j = 0; j < n; j++){
-                if(grid[i][j] == '0'){
-                    int u = i, d = i, l = j, r = j, count = 0;
-                    while(u >= 0){
-                        if(grid[u][j] == 'E') count++;  
-                        if(grid[u][j] == 'W') u = 0;
-                        u--;
-                    }
-                    while(d < m){
-                        if(grid[d][j] == 'E') count++;  
-                        if(grid[d][j] == 'W') d = m;
-                        d++;
-                    } 
-                    while(l >= 0){
-                        if(grid[i][l] == 'E') count++;  
-                        if(grid[i][l] == 'W') l = 0;
-                        l--;
-                    }
-                    while(r < n){
-                        if(grid[i][r] == 'E') count++;  
-                        if(grid[i][r] == 'W') r = n;
-                        r++;
-                    }
-                    res = max(res,count);
-                }
-            } 
+        int res = 0;                         
+        for(int i = 0; i < size(grid); i++){
+            for(int j = 0; j < size(grid[0]); j++){
+                if(grid[i][j] == '0') res = max(getCount(i,j,grid),res);   
+            }
         }
         return res;
+    }
+                                 
+    int getCount(int x, int y, vector<vector<char>>& grid){
+        int count = 0;
+        for(int i = x+1; i < size(grid); i++){
+            if(grid[i][y] == 'W') break;
+            if(grid[i][y] == 'E') count++;
+        }
+        
+        for(int i = x-1; i >= 0; i--){
+            if(grid[i][y] == 'W') break;
+            if(grid[i][y] == 'E') count++;
+        }
+        
+        for(int j = y+1; j < size(grid[x]); j++){
+            if(grid[x][j] == 'W') break;
+            if(grid[x][j] == 'E') count++;
+        }
+        
+        for(int j = y-1; j >= 0; j--){
+            if(grid[x][j] == 'W') break;
+            if(grid[x][j] == 'E') count++;
+        }
+        return count;
     }
 };
