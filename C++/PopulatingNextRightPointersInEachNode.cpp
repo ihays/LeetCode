@@ -1,8 +1,12 @@
-//Ian Hays
-//07-12-2020
-//https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
-//SC: O(N) TC: O(N)
-
+/***********************************************************************************************
+Problem      Populating Next Right Pointers in Each Node
+Developer    Ian Hays
+Date         08/22/2021
+URL          https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+Space        O(N) 
+Time         O(N)
+Description  BFS through tree linking next sibling nodes. 
+************************************************************************************************/
 /*
 // Definition for a Node.
 class Node {
@@ -20,26 +24,24 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 */
-
 class Solution {
 public:
     Node* connect(Node* root) {
-        if(!root) return root;
+        if(!root) return NULL;
         queue<Node*> q;
         q.push(root);
         
         while(!q.empty()){
-            int m = q.size();
-            Node* prev = NULL;
-            for(int i = 0; i < m; i++){
+            int size = q.size();
+            for(int i = 0; i < size; i++){
                 Node* node = q.front();
                 q.pop();
-                node->next = prev;
-                prev = node;
-                if(node->right) q.push(node->right);
+                if(i < size-1) node->next = q.front();
                 if(node->left) q.push(node->left);
+                if(node->right) q.push(node->right);
             }
         }
+        
         return root;
     }
 };
