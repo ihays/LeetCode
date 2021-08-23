@@ -1,5 +1,5 @@
 /***********************************************************************************************
-Problem      PRemove Vowels from a String
+Problem      Remove Vowels from a String
 Developer    Ian Hays
 Date         08/23/2021
 URL          https://leetcode.com/problems/remove-vowels-from-a-string/
