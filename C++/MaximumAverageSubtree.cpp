@@ -2,11 +2,10 @@
 Problem      Maximum Average Subtree
 Developer    Ian Hays
 Date         09/02/2021
-URL          https://leetcode.com/problems/132-pattern/
-Space        O(N) 
-Time         O(N)
-Description  We store the third value in an integer, second value candidate in a stack. The first
-             value is validated when it is less than the third after assigning it in our while loop.
+URL          https://leetcode.com/problems/maximum-average-subtree/
+Space        O(N^2) 
+Time         O(N^2)
+Description  Grab the maximum average subtree for each node and return. 
 ************************************************************************************************/
 
 /**
