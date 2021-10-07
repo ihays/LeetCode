@@ -1,37 +1,35 @@
-//Ian Hays
-//07-17-2020
-//https://leetcode.com/problems/word-search/
-//SC: O(1) TC: O(N^2 * 3^k) ~ time complexity is tricky here, we can move in 4 directions at the very beginning during DFS, 
-//but turns into 3 direction because we can't revisit a node.
-//DFS + Backtracking - We pass board in by reference and backtrack instead of creating separate copies of itself many times with the recursion
+/***********************************************************************************************
+Problem      Word Search
+Developer    Ian Hays
+Date         10/07/2021
+URL          https://leetcode.com/problems/word-search/
+Space        O(1) 
+Time         O(N^2 * 3^k) ~ time complexity is tricky here, we can move in 4 directions at the very 
+             beginning during DFS but turns into 3 direction because we can't revisit a node.
+Description  DFS + Backtracking - We pass board in by reference and backtrack instead of creating 
+             separate copies of itself many times with the recursion 
+************************************************************************************************/
 
 class Solution {
 public:
-    int m;
-    int n;
+    int m, n;
     bool exist(vector<vector<char>>& board, string word) {
-        m = board.size();
-        n = board[0].size();
-        
+        m = size(board), n = size(board[0]);
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
-                if(dfs(board, i, j, word.c_str())){
-                    return true;
-                }
+                if(dfs(board, word.c_str(), i,j)) return true;
             }
         }
         return false;
     }
     
-    bool dfs(vector<vector<char>>& board, int i, int j, const char* w){
-        if(i < 0 || j < 0 || i >= m || j >= n || board[i][j] == '*' || *w != board[i][j]) return false;
+    bool dfs(vector<vector<char>>& board, const char* w, int i, int j){
+        if (i < 0 || i >= m || j < 0 || j >= n || board[i][j] != *w) return false;
         if(*(w+1) == '\0') return true;
-        char t = board[i][j];
+        char c = board[i][j];
         board[i][j] = '*';
-        if(dfs(board, i+1, j, w+1) || dfs(board, i, j+1, w+1) || dfs(board, i-1, j, w+1) || dfs(board, i, j-1, w+1)){
-            return true;
-        } 
-        board[i][j] =  t;
+        if(dfs(board, w+1, i+1, j) || dfs(board, w+1, i-1, j) || dfs(board, w+1, i, j+1) || dfs(board, w+1, i, j-1)) return true;
+        board[i][j] = c;
         return false;
     }
 };
