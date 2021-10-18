@@ -1,8 +1,12 @@
-//Ian Hays
-//02-15-2021
-//https://leetcode.com/problems/cousins-in-binary-tree/
-//SC: O(N) TC: O(N)
-
+/***********************************************************************************************
+Problem      Cousins in Binary Tree
+Developer    Ian Hays
+Date         10/17/2021
+URL          https://leetcode.com/problems/cousins-in-binary-tree/
+Space        O(N) 
+Time         O(N)
+Description  BFS or DFS through tree to find cousins
+************************************************************************************************/
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -37,4 +41,32 @@ public:
         return false;
     }
 
+};
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isCousins(TreeNode* root, int x, int y) {
+        vector<int> a = dfs(root, x, 0, 0);
+        vector<int> b = dfs(root, y, 0, 0);
+        return a[0] != b[0] && a[1] == b[1];
+    }
+    
+    vector<int> dfs(TreeNode* root, int z, int level, int p){
+        if(!root) return vector<int>();
+        if(root->val == z) return {p, level};
+        vector<int> res = dfs(root->left, z, level+1, root->val);
+        return res.empty() ? dfs(root->right, z, level+1, root->val) : res;
+    }
+    
 };
