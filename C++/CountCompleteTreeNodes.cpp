@@ -1,7 +1,12 @@
-//Ian Hays
-//01-16-2021
-//https://leetcode.com/problems/count-complete-tree-nodes/
-//SC: O(1) TC: O(N)
+/***********************************************************************************************
+Problem      Count Complete Tree Nodes
+Developer    Ian Hays
+Date         10/23/2021
+URL          https://leetcode.com/problems/count-complete-tree-nodes/
+Space        O(1) 
+Time         O(N)
+Description  recurse on nodes returning additive 1. 
+************************************************************************************************/
 
 /**
  * Definition for a binary tree node.
@@ -16,7 +21,8 @@
  */
 class Solution {
 public:
-    int countNodes(TreeNode* root) {     
-        return root ? 1 + (root->left ? countNodes(root->left): 0) + (root->right ? countNodes(root->right): 0)  : 0;
+    int countNodes(TreeNode* root) {
+        if(!root) return 0;
+        return 1 + countNodes(root->left) + countNodes(root->right);   
     }
-}
+};
