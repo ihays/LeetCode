@@ -1,8 +1,12 @@
-//Ian Hays
-//01-06-2021
-//https://leetcode.com/problems/invert-binary-tree/
-//SC: O(1) TC: O(N)
-
+/***********************************************************************************************
+Problem      Invert Binary Tree
+Developer    Ian Hays
+Date         10/25/2021
+URL          https://leetcode.com/problems/invert-binary-tree/
+Space        O(1) 
+Time         O(N)
+Description  Swap children as you traverse through the tree and return. 
+************************************************************************************************/
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -17,11 +21,10 @@
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
-        if(root){
-            swap(root->left,root->right);
-            invertTree(root->left);
-            invertTree(root->right);
-        }
-        return root;   
+        if(!root) return nullptr;
+        swap(root->left, root->right);
+        invertTree(root->left);
+        invertTree(root->right);    
+        return root;
     }
 };
