@@ -11,31 +11,31 @@ Description  We insert stack values into a list and store the addresses for each
 
 class MinStack {
 public:
-    list<int> l;
-    map<int, vector<list<int>::iterator>> mp;
+    list<int> m_list;
+    map<int, vector<list<int>::iterator>> m_map;
     
     MinStack() {
         
     }
     
-    void push(int x) {
-        l.insert(begin(l), x);
-        mp[x].push_back(begin(l));
+    void push(int val) {
+        m_list.insert(begin(m_list), val);
+        m_map[val].push_back(begin(m_list));
     }
     
     void pop() {
-        int val = *begin(l);
-        l.erase(begin(l));
-        mp[val].pop_back();
-        if(mp[val].empty()) mp.erase(val);
+        int val = *begin(m_list);
+        m_list.erase(begin(m_list));
+        m_map[val].pop_back();
+        if(m_map[val].empty()) m_map.erase(val);
     }
     
     int top() {
-        return *begin(l);
+        return *begin(m_list);
     }
     
     int getMin() {
-        return begin(mp)->first;
+        return begin(m_map)->first;
     }
 };
 
