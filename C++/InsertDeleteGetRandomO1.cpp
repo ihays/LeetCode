@@ -1,45 +1,47 @@
 /***********************************************************************************************
 Problem      Insert Delete Get Random O1
 Developer    Ian Hays
-Date         10/20/2021
+Date         2/1/2022
 URL          https://leetcode.com/problems/insert-delete-getrandom-o1/
 Space        O(N) 
 Time         O(N)
-Description  Grabs random value in set by advancing. This will need to be updated to grab at O(1)
+Description  using a map to store locations of values and a vector to insert, delete, and retrieve
+             in O(1).
 ************************************************************************************************/
-
 
 
 class RandomizedSet {
 public:
-    unordered_set<int> uset;
+    unordered_map<int, int> umap;
+    vector<int> v;
+    
     RandomizedSet() {
         
     }
     
     bool insert(int val) {
-        if(uset.count(val)){
-            return false;
-        } else {
-            uset.insert(val);
+        if(!umap.count(val)){
+            v.push_back(val);
+            umap[val] = size(v)-1;
             return true;
         }
+        return false;
     }
     
     bool remove(int val) {
-        if(uset.count(val)){
-            uset.erase(val);
+        if(umap.count(val)){
+            int index = umap[val];
+            umap[v.back()] = index;
+            swap(v[index], v[size(v)-1]);
+            umap.erase(val);
+            v.pop_back();
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
     
     int getRandom() {
-        auto it = uset.cbegin();
-        int random = rand() % uset.size();
-        advance(it, random);
-        return *it; 
+        return v[rand() % v.size()];
     }
 };
 
