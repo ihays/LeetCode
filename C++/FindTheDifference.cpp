@@ -1,21 +1,19 @@
-//Ian Hays
-//01-07-2021
-//https://leetcode.com/problems/find-the-difference/
-//SC: O(1) TC: O(N)
+/***********************************************************************************************
+Problem      Find The Difference
+Developer    Ian Hays
+Date         2/1/2022
+URL          https://leetcode.com/problems/find-the-difference/
+Space        O(1) 
+Time         O(N)
+Description  XOR each letter to eliminate duplicates and reveal the difference in t.
+************************************************************************************************/
 
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        int a[26] = {0};
-        int i;
-        for(i = 0; i < s.length(); i++){
-            a[s[i] - 'a']++;
-            a[t[i] - 'a']--;
-        }
-        a[t[i] - 'a']--;
-        for(i = 0; i < 26; i++){
-            if(a[i] != 0) break;
-        }
-        return 'a' + i;
+        char res = s[0];
+        for(int i = 1; i < size(s); i++) res ^= s[i];
+        for(auto ch: t) res ^= ch;        
+        return res;
     }
 };
