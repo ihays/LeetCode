@@ -1,9 +1,12 @@
-
-//Ian Hays
-//06-30-2020
-//https://leetcode.com/problems/maximum-depth-of-binary-tree/
-//SC: O(1) TC: O(N)
-//DFS - return max level through depth first search of binary tree
+/***********************************************************************************************
+Problem      Maximum Depth Of Binary Tree
+Developer    Ian Hays
+Date         02/14/2022
+URL          https://leetcode.com/problems/maximum-depth-of-binary-tree/
+Space        O(1) 
+Time         O(N)
+Description  DFS and return the maximum value child. The largest value is the depth of the binary tree.
+************************************************************************************************/
 
 /**
  * Definition for a binary tree node.
@@ -19,11 +22,9 @@
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        return helper(root,0);
+        if(!root) return 0;
+        return 1 + max(maxDepth(root->left), maxDepth(root->right));
     }
     
-    int helper(TreeNode* root, int level){
-        if(root == nullptr) return level;
-        return max(helper(root->left, level+1),helper(root->right,level+1));
-    }
+    
 };
