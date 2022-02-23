@@ -5,56 +5,52 @@ Date         02/22/2022
 URL          https://leetcode.com/problems/valid-number/
 Space        O(1) 
 Time         O(N)
-Description  Determine if separated by e and check if it's a decimal or integer based on criteria
-             provided by the problem.
+Description  using a DFA with 9 states converted from a regex of the valid number
 ************************************************************************************************/
 
 class Solution {
 public:
     bool isNumber(string s) {
-        int count = 0, ePos;
-        char e;
+        int state = 0;
         for(auto ch: s){
-            if(ch == 'e' || ch == 'E'){
-                if(count++ > 1) return false;
-                e = ch; 
-            } else if(ch >= '0' && ch <= '9' || ch == '+' || ch == '-' || ch == '.'){
-                continue;    
+            if(ch == '+' || ch == '-'){
+                if(state == 0){
+                    state = 1;    
+                } else if(state == 5){
+                    state = 6;  
+                } else {
+                    return false;
+                }
+            } else if(ch >= '0' && ch <= '9'){
+                if(state == 0 || state == 2 || state == 1){
+                    state = 2;
+                } else if(state == 3 || state == 4){
+                    state = 4;
+                } else if(state == 8 || state == 9){
+                    state = 9;
+                } else if(state == 5 || state == 6 || state == 7){
+                    state = 7;
+                } else {
+                    return false;
+                }
+            } else if(ch == '.'){
+                if(state == 2){
+                    state = 3;
+                } else if(state == 1 || state == 0){
+                    state = 8;
+                } else{
+                    return false;
+                }
+            } else if(ch == 'E' || ch == 'e'){
+                if(state == 2 || state == 3 || state == 4 || state == 9){
+                    state = 5;
+                } else{
+                    return false;
+                }
             } else {
-                return false;    
-            }
-        }
-        if(s[0] == '-' || s[0] == '+') s = s.substr(1);
-        if(count){
-            ePos = s.find(e);
-            string prefix = s.substr(0, ePos);
-            string suffix = s.substr(ePos+1, size(s)-(ePos+1));
-            if(suffix[0] == '-' || suffix[0] == '+') suffix = suffix.substr(1);
-            return (isDecimal(prefix) || isInteger(prefix)) && isInteger(suffix);
-        } else {
-            return isDecimal(s) || isInteger(s);
-        }
-    }
-    
-    bool isDecimal(string s){
-        if(s.empty()) return false;
-        int index = 0, count = 0;
-        for(int i = index; i < size(s); i++){
-            if(s[i] == '.'){
-                count++;    
-            } else if(s[i] < '0' || s[i] > '9'){
                 return false;
             }
         }
-        return count == 1 && size(s) > 1;
-    }
-    
-    bool isInteger(string s){
-        if(s.empty()) return false;
-        int index = 0;
-        for(int i = index; i < size(s); i++){
-            if(s[i] < '0' || s[i] > '9') return false;
-        }
-        return true;
+        return state == 2 || state == 3 || state == 4 || state == 7 || state == 9;
     }
 };
