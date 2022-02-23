@@ -1,7 +1,7 @@
 /***********************************************************************************************
 Problem      Valid Number
 Developer    Ian Hays
-Date         02/22/2022
+Date         02/23/2022
 URL          https://leetcode.com/problems/valid-number/
 Space        O(1) 
 Time         O(N)
