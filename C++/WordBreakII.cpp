@@ -5,7 +5,7 @@ Date         03/03/2022
 URL          https://leetcode.com/problems/word-break-ii/
 Space        O(N^2) 
 Time         O(N^2)
-Description  Use dynamic programming to store the results of each valid palindrome and number of cuts.
+Description  Use dynamic programing to hold possibilities of sentences through recursion. 
 ************************************************************************************************/
 
 class Solution {
