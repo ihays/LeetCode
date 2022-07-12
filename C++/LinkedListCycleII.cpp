@@ -1,7 +1,14 @@
-//Ian Hays
-//01-18-2021
-//https://leetcode.com/problems/linked-list-cycle-ii/
-//SC: O(1) TC: O(N)
+/***********************************************************************************************
+Problem      Linked List Cycle II
+Developer    Ian Hays
+Date         07/12/2022
+URL          https://leetcode.com/problems/linked-list-cycle-ii/
+Space        O(1) 
+Time         O(N)
+Description  Using an entry, fast, slow pointers determine where the fast and slow meet. Use entry
+             to meet the fast pointer by iterating through one node at a time to find where the linked
+             list cycles. 
+************************************************************************************************/
 
 /**
  * Definition for singly-linked list.
@@ -15,21 +22,21 @@ class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
         if(!head) return NULL;
-        ListNode *l1 = head;
-        ListNode *l2 = head;
-        while(l2->next && l2->next->next){
-            l1 = l1->next;
-            l2 = l2->next->next;
-            if(l1 == l2){
-                l2 = head;
-                while(l1 != l2){
-                    l1 = l1->next;
-                    l2 = l2->next;
-                }
-                return l1;
+        ListNode* slow = head;
+        ListNode* fast = head;
+        ListNode* entry = head;
+        
+        while(fast->next && fast->next->next){
+            slow = slow->next;
+            fast = fast->next->next;
+            if(slow == fast){
+                while(fast != entry){
+                    fast = fast->next;
+                    entry = entry->next;
+                }  
+                return fast;
             }
         }
-
         return NULL;
     }
 };
