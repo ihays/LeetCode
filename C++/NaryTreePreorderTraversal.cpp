@@ -1,7 +1,7 @@
 /***********************************************************************************************
 Problem      N-ary Tree Preorder Traversal
 Developer    Ian Hays
-Date         04/20/2021
+Date         07/13/2022
 URL          https://leetcode.com/problems/n-ary-tree-preorder-traversal/
 Space        O(N) 
 Time         O(N)
@@ -10,8 +10,6 @@ Description  DFS through tree pushing values to result vector.
 
 /*
 // Definition for a Node.
-
-
 class Node {
 public:
     int val;
@@ -42,8 +40,9 @@ public:
         if(!root) return;
         res.push_back(root->val);
         vector<Node*> children = root->children;
-        for(int i = 0; i < children.size(); i++){
-            dfs(children[i]);    
+        for(int i = 0; i < size(children); i++){
+            dfs(children[i]);
         }
+        return;
     }
 };
