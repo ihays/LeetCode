@@ -1,17 +1,26 @@
-//Ian Hays
-//12-23-2020
-//https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
-//SC: O(1) TC: O(N^2)
+/***********************************************************************************************
+Problem      Two Sum II
+Developer    Ian Hays
+Date         07/13/2022
+URL          https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+Space        O(1) 
+Time         O(N)
+Description  using pointers from each end, find the sum by incrementing or decrementing the right
+             or left based on sum. Since it's sorted, we increment left if sum is less than target
+             otherwise decrement right. 
+************************************************************************************************/
 
 class Solution {
 public:
     vector<int> twoSum(vector<int>& numbers, int target) {
-        for(int i = 0; i < numbers.size(); i++){
-            if(i > 2 && numbers[i] == numbers[i-2]) continue;
-            for(int j = 1; j < numbers.size(); j++){
-                if(numbers[i] + numbers[j] == target && i != j) return {i+1, j+1};
-            }
+        int l = 0;
+        int r = size(numbers)-1;
+        
+        while(numbers[l] + numbers[r] != target){
+            if(numbers[l] + numbers[r] > target)  r--;
+            else l++;
         }
-        return {};
+            
+        return {l+1, r+1};
     }
 };
