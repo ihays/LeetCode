@@ -1,7 +1,7 @@
 /***********************************************************************************************
 Problem      Add One Row To Tree
 Developer    Ian Hays
-Date         03/09/2021
+Date         10/04/2022
 URL          https://leetcode.com/problems/add-one-row-to-tree/
 Space        O(N) 
 Time         O(N)
@@ -23,7 +23,7 @@ Description  Breadth First Search through tree until reaching level to add nodes
  */
 class Solution {
 public:
-    TreeNode* addOneRow(TreeNode* root, int v, int d) {
+    TreeNode* addOneRow(TreeNode* root, int val, int depth) {
         queue<TreeNode*> q;
         q.push(root);
         if(d == 1){
@@ -40,12 +40,12 @@ public:
                 if(node->left) q.push(node->left);
                 if(node->right) q.push(node->right);
                 if(level == d){
-                    TreeNode* left = node->left ? node->left : nullptr;
-                    TreeNode* right = node->right ? node->right : nullptr;
-                    node->left = new TreeNode(v);
-                    node->right = new TreeNode(v);
-                    if(node->left) node->left->left = left;
-                    if(node->right) node->right->right = right;
+                    TreeNode* right = node->right;
+                    TreeNode* left = node->left;
+                    node->right = new TreeNode(val);
+                    node->left = new TreeNode(val);
+                    node->right->right = right;
+                    node->left->left = left;
                 } 
             }
             level++;
